@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -64,6 +65,26 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
 
         // Find a reference to the progress bar
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+
+        // Set an item click listener on the ListView, which sends an intent to a web browser
+        // to open a website with more information about the selected news.
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                // Find the current Education News that was clicked on
+                EducationNews currentEducationNews = newsAdapter.getItem(position);
+
+                // Convert the String URL into a URI object (to pass into the Intent constructor)
+                Uri educationNewsUri = Uri.parse(currentEducationNews.getUrl());
+
+                // Create a new intent to view the Education News URI
+                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, educationNewsUri);
+
+                // Send the intent to launch a new activity
+                startActivity(websiteIntent);
+            }
+        });
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connectivityManager = (ConnectivityManager)
@@ -159,7 +180,4 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-
 }

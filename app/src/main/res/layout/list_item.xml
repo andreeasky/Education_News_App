@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:textSize="19sp"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         android:paddingBottom="8dp"
         tools:text="Title"/>
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:textColor="#3F51B5"
+        android:textColor="@android:color/holo_blue_bright"
         android:paddingBottom="6dp"
         tools:text="News Section" />
 
