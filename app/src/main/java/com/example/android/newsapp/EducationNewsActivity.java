@@ -30,7 +30,7 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
 
     // The Guardian Base URL
     private static final String GUARDIAN_REQUEST_URL =
-            "https://content.guardianapis.com/search?q=";
+            "http://content.guardianapis.com/search?q=education&api-key=59d0bf63-14c5-4f77-b80d-cbd12411469f";
 
     // Constant value for the news loader ID. We can choose any integer.
     private static final int NEWS_LOADER_ID = 1;
