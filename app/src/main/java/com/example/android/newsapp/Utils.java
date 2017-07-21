@@ -184,8 +184,8 @@ public class Utils {
             return null;
         }
 
-        // Create an empty ArrayList that we can start adding Education News to
-        ArrayList<EducationNews> educationNews = new ArrayList<>();
+        // Create an empty List that we can start adding Education News to
+        List<EducationNews> educationNews = new ArrayList<>();
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -195,84 +195,36 @@ public class Utils {
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(educationNewsJSON);
 
-            // Extract the JSONArray associated with the key called "response",
-            // which represents a list of features for the Education News.
-            JSONArray educationNewsArray = baseJsonResponse .getJSONArray(RESPONSE);
+            // Extract the JSONObject associated with the key called "response",
+            // which represents the response received from the server with EducationNews.
+            JSONObject responseNewsObject = baseJsonResponse.getJSONObject(RESPONSE);
 
-            int i = 0;
-
-            // Get a single Education News at position i within the list of Education News
-            JSONObject currentEducationNews = educationNewsArray.getJSONObject(i);
-
-            if(currentEducationNews.has(RESPONSE)) {
-                // Extract the value for the key called "response"
-                currentEducationNews.getJSONArray(RESPONSE);
-
-
-                String newsTitle = "N/A";
-                // Extract the value for the key called "title" - Get the title of the current Education News
-                if (currentEducationNews.has(NEWS_TITLE)) {
-                    newsTitle = currentEducationNews.getString(NEWS_TITLE);
-
-                }
-
-                String newsSection = "N/A";
-                if (currentEducationNews.has(SECTION)) {
-                    // Extract the value for the key called "section" - Get the section of the current Education News
-                    newsSection = currentEducationNews.getString(SECTION);
-                }
-
-                String newsDate = "N/A";
-                if (currentEducationNews.has(DATE)) {
-                    // Extract the value for the key called "date" - Get the information about the published date of the current Education News
-                    newsDate = currentEducationNews.getString(DATE);
-                }
-
-                String urlNews = "N/A";
-                if (currentEducationNews.has(NEWS_URL)) {
-                    // Extract the value for the key called "url" - Get the URL of the current Education News
-                    urlNews = currentEducationNews.getString(NEWS_URL);
-                }
-            }
+            // Extract the JSONArray associated with the key called "results",
+            // which represents a list of results with EducationNews.
+            JSONArray resultsNewsArray =  responseNewsObject.getJSONArray(RESULTS);
 
             // For each Education News in the educationNewsArray, create an EducationNews object
-            for (i = 0; i < educationNewsArray.length(); i++) {
+            for (int i = 0; i < resultsNewsArray.length(); i++) {
 
                 // Get a single Education News at position i within the list of Education News
-                currentEducationNews = educationNewsArray.getJSONObject(i);
+                JSONObject currentEducationNews = resultsNewsArray.getJSONObject(i);
 
-                // Extract the JSONArray associated with the key called "results",
-                // which represents a list of results for the Education News.
-                JSONObject results =  currentEducationNews.getJSONObject(RESULTS);
+                // Extract the value for the key called "title" - Get the title of the current Education News
+                String title = currentEducationNews.getString(NEWS_TITLE);
 
-                String title = "N/A";
-                if ( results.has (NEWS_TITLE)) {
-                    // Extract the value for the key called "title" - Get the title of the current Education News
-                   title = results.getString(NEWS_TITLE);
-                }
-
-                String section = "N/A";
-                if ( results.has (SECTION)){
                 // Extract the value for the key called "section" - Get the section of the current Education News
-                    section = results.getString(SECTION);
-                }
+                String section = currentEducationNews.getString(SECTION);
 
-                String date = "N/A";
-                if ( results.has (DATE)){
-                    // Extract the value for the key called "date" - Get the information about the published date of the current Education News
-                    date = results.getString(DATE);
-                }
+                // Extract the value for the key called "date" - Get the information about the published date of the current Education News
+                String date = currentEducationNews.getString(DATE);
 
-                String newsUrl = "N/A";
-                if (results.has(NEWS_URL)) {
-                    // Extract the value for the key called "url" - Get the URL of the current Education News
-                    newsUrl = results.getString(NEWS_URL);
-                }
+                // Extract the value for the key called "url" - Get the URL of the current Education News
+                String newsUrl = currentEducationNews.getString(NEWS_URL);
 
                 // Create a new Education News object with the title, section, date and URL from the JSON response
                 EducationNews newsEducationNews = new EducationNews(title, section, date, newsUrl);
 
-                // Add the new Education News to the list of Education News.
+                // Add the new Education News object created to the list of Education News.
                 educationNews.add(newsEducationNews);
             }
 
@@ -280,13 +232,12 @@ public class Utils {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
-            Log.e(LOG_TAG, "Problem parsing the educationNews JSON results", e);
+            Log.e(LOG_TAG, "Problem parsing the Education News JSON results", e);
         }
 
         // Return the list of Education News
         return educationNews;
     }
-
 }
 
 

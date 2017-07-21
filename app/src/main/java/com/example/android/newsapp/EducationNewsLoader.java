@@ -39,5 +39,4 @@ public class EducationNewsLoader extends AsyncTaskLoader<List<EducationNews>> {
         List<EducationNews> educationNews = Utils.fetchEducationNewsData(mUrl);
         return educationNews;
     }
-
 }
