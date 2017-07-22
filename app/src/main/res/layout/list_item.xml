@@ -11,16 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:textSize="19sp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textColor="#fc5cd7"
         android:textStyle="bold"
-        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="6dp"
         tools:text="Title"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="8dp">
 
     <TextView
         android:id="@+id/news_section"
@@ -28,8 +30,8 @@
         android:layout_height="wrap_content"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:textColor="@android:color/holo_blue_bright"
-        android:paddingBottom="6dp"
+        android:textColor="@color/colorPrimary"
+        android:paddingBottom="10dp"
         tools:text="News Section" />
 
     <TextView
@@ -38,8 +40,9 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textStyle="bold|italic"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/holo_purple"
         android:layout_alignParentRight="true"
+        android:layout_below="@id/news_section"
         tools:text="Date" />
 
 </RelativeLayout>
