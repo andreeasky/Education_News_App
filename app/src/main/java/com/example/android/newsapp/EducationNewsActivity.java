@@ -30,10 +30,19 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
 
     // The Guardian Base URL
     private static final String GUARDIAN_REQUEST_URL =
-            "http://content.guardianapis.com/search?q=education&api-key=59d0bf63-14c5-4f77-b80d-cbd12411469f";
+            "http://content.guardianapis.com/search?&=";
 
     // Constant value for the news loader ID. We can choose any integer.
     private static final int NEWS_LOADER_ID = 1;
+
+    // Constant for the default category of News
+    private static final String EDUCATION = "education";
+
+    // Constant value for the API search Key
+    private static final String API_KEY = "api-key";
+
+    // Constant value for the API Key
+    private static final String KEY = "59d0bf63-14c5-4f77-b80d-cbd12411469f";
 
     // Adapter for the Education News
     private EducationNewsAdapter newsAdapter;
@@ -123,16 +132,17 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String searchSection = sharedPreferences.getString(
-                getString(R.string.settings_search_by_news_key),
-                getString(R.string.settings_search_by_news_default));
+                getString(R.string.settings_search_by_news_default),
+                getString(R.string.settings_search_by_news_education_category));
+
 
         // Create an URI and an URI Builder
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         // Append the search parameters to the request URL
-        uriBuilder.appendQueryParameter("order_by", searchSection);
-        uriBuilder.appendQueryParameter("api_key", "test");
+        uriBuilder.appendQueryParameter(EDUCATION, searchSection);
+        uriBuilder.appendQueryParameter(API_KEY, KEY);
 
         // Create a NewsLoader with the request URL
         return new EducationNewsLoader(this, uriBuilder.toString());
@@ -178,7 +188,22 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
             Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivity(settingsIntent);
             return true;
+
+
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Get a reference to the LoaderManager, in order to interact with loaders.
+        LoaderManager loaderManager = getLoaderManager();
+
+        // Restart the loader. Pass in the int ID constant defined above and pass in null for
+        // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
+        // because this activity implements the LoaderCallbacks interface).//
+        loaderManager.restartLoader(NEWS_LOADER_ID , null, this);
     }
 }
