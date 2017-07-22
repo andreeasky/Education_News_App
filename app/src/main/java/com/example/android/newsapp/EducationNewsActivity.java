@@ -38,7 +38,10 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
     // Constant for the default category of News
     private static final String EDUCATION = "education";
 
-    // Constant value for the API search Key
+    // Constant for a specific category of News
+    private static final String TRAINING = "training";
+
+    // Constant for the API search Key
     private static final String API_KEY = "api-key";
 
     // Constant value for the API Key
@@ -141,8 +144,11 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         // Append the search parameters to the request URL
-        uriBuilder.appendQueryParameter(EDUCATION, searchSection);
+        uriBuilder.appendQueryParameter("q", EDUCATION);
         uriBuilder.appendQueryParameter(API_KEY, KEY);
+        uriBuilder.appendQueryParameter("q", TRAINING);
+        uriBuilder.appendQueryParameter("q", searchSection);
+
 
         // Create a NewsLoader with the request URL
         return new EducationNewsLoader(this, uriBuilder.toString());
