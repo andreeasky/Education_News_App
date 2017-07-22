@@ -15,7 +15,8 @@
 
     <!-- Strings for Search by Preference -->
     <string name="settings_news_label">Education</string>
-    <string name="settings_search_by_news_key" translatable="false">search by</string>
-    <string name="settings_search_by_news_default" translatable="false">education</string>
+    <string name="settings_search_by_news_key" translatable="false">Search By</string>
+    <string name="settings_search_by_news_default" translatable="false">Education</string>
+    <string name="settings_search_by_news_education_category" translatable="false">Training</string>
 
 </resources>

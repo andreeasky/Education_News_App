@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="settings_search_by_news_label">
+        <item>@string/settings_search_by_news_default</item>
+        <item>@string/settings_search_by_news_education_category</item>
+    </string-array>
+
+    </resources>

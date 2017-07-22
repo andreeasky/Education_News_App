@@ -7,7 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class EducationNewsAdapter extends ArrayAdapter<EducationNews> {
 
@@ -51,7 +55,15 @@ public class EducationNewsAdapter extends ArrayAdapter<EducationNews> {
         TextView dateView = (TextView) listItemView.findViewById(R.id.date);
 
         // Display the date when the current news was published in that TextView
-        dateView.setText(currentNews.getNewsDate());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US);
+        SimpleDateFormat dateFormat2 = new SimpleDateFormat("EEEE dd MMMM yyyy", Locale.US);
+        try {
+            Date date = dateFormat.parse(currentNews.getNewsDate());
+
+            String parsedaDate = dateFormat2.format(date);
+            dateView.setText(parsedaDate);
+        } catch (ParseException e) {
+        }
 
         // Return the list item view
         return listItemView;

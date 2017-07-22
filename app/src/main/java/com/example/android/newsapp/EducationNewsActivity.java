@@ -80,6 +80,7 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
 
                 // Create a new intent to view the Education News URI
                 Intent websiteIntent = new Intent(Intent.ACTION_VIEW, educationNewsUri);
+                websiteIntent.setData(educationNewsUri);
 
                 // Send the intent to launch a new activity
                 startActivity(websiteIntent);
