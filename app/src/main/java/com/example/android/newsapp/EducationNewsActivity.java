@@ -149,15 +149,17 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         View progressBar = findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.GONE);
 
-        // Set empty state text view to display "No news found."
-        emptyStateTextView.setText(R.string.no_news);
-
         // Clear the adapter of previous news data
         newsAdapter.clear();
 
-        // If there is a valid list of news about Education, then add them to the adapter's
-        // data set. This will trigger the ListView to update.
-        if (educationNews != null && !educationNews.isEmpty()) {
+        // If no news can be found
+        if (educationNews.isEmpty()){
+            // Set empty state text view to display "No news found."
+            emptyStateTextView.setText(R.string.no_news);
+
+        } else {
+            // If there is a valid list of news, then add them to the adapter's
+            // data set. This will trigger the ListView to update.
             newsAdapter.addAll(educationNews);
         }
     }
