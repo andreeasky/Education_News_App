@@ -152,15 +152,16 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         // Clear the adapter of previous news data
         newsAdapter.clear();
 
-        // If no news can be found
-        if (educationNews.isEmpty()){
-            // Set empty state text view to display "No news found."
-            emptyStateTextView.setText(R.string.no_news);
-
-        } else {
-            // If there is a valid list of news, then add them to the adapter's
-            // data set. This will trigger the ListView to update.
+        // If there is a valid list of news about Education, then add them to the adapter's data set.
+        // This will trigger the ListView to update.
+        if (educationNews != null && !educationNews.isEmpty()) {
             newsAdapter.addAll(educationNews);
+
+            // If no news can be found
+            if (educationNews.isEmpty()) {
+                // Set empty state text view to display "No news found."
+                emptyStateTextView.setText(R.string.no_news);
+            }
         }
     }
 
