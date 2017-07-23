@@ -29,17 +29,10 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
     private static final String LOG_TAG = EducationNewsActivity.class.getName();
 
     // The Guardian Base URL
-    private static final String GUARDIAN_REQUEST_URL =
-            "http://content.guardianapis.com/search?&=";
+    private static final String GUARDIAN_REQUEST_URL = "http://content.guardianapis.com/search?&=";
 
     // Constant value for the news loader ID. We can choose any integer.
     private static final int NEWS_LOADER_ID = 1;
-
-    // Constant for the default category of News
-    private static final String EDUCATION = "education";
-
-    // Constant for a specific category of News
-    private static final String TRAINING = "training";
 
     // Constant for the API search Key
     private static final String API_KEY = "api-key";
@@ -53,7 +46,7 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
     // TextView that is displayed for the empty state view
     private TextView emptyStateTextView;
 
-    // ProgressBar that is displayed when the application is searching for data
+    // ProgressBar that is displayed when the application is searching for news
     public ProgressBar progressBar;
 
     @Override
@@ -138,7 +131,6 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
                 getString(R.string.settings_search_by_news_key),
                 getString(R.string.settings_news_label));
 
-
         // Create an URI and an URI Builder
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
@@ -146,7 +138,6 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         // Append the search parameters to the request URL
         uriBuilder.appendQueryParameter("q", searchSection);
         uriBuilder.appendQueryParameter(API_KEY, KEY);
-        Log.i("url",uriBuilder.toString());
 
         // Create a NewsLoader with the request URL
         return new EducationNewsLoader(this, uriBuilder.toString());

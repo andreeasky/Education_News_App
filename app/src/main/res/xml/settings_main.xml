@@ -9,11 +9,4 @@
         android:key="@string/settings_search_by_news_key"
         android:title="@string/settings_search_by_news_key_list_preference" />
 
-    <EditTextPreference
-        android:defaultValue="@string/settings_search_by_news_default"
-        android:inputType="text"
-        android:key="@string/settings_search_by_news_key"
-        android:selectAllOnFocus="true"
-        android:title="@string/settings_search_by_news_key_word" />
-
 </PreferenceScreen>

@@ -68,5 +68,4 @@ public class EducationNewsAdapter extends ArrayAdapter<EducationNews> {
         // Return the list item view
         return listItemView;
     }
-
 }

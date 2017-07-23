@@ -4,41 +4,41 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp">
+    android:padding="@dimen/padding_large">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:textSize="18sp"
+        android:textSize="@dimen/textSize_title"
         android:textColor="#fc5cd7"
         android:textStyle="bold"
-        android:paddingTop="8dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="6dp"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/padding_tiny"
         tools:text="Title"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp">
+        android:padding="@dimen/padding_small">
 
     <TextView
         android:id="@+id/news_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
+        android:textSize="@dimen/textSize_news_section"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
-        android:paddingBottom="10dp"
+        android:paddingBottom="@dimen/padding_small"
         tools:text="News Section" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:textSize="@dimen/textSize_date"
         android:textStyle="bold|italic"
         android:textColor="@android:color/holo_purple"
         android:layout_alignParentRight="true"
