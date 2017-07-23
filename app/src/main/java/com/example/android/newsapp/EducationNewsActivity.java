@@ -135,8 +135,8 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String searchSection = sharedPreferences.getString(
-                getString(R.string.settings_search_by_news_default),
-                getString(R.string.settings_search_by_news_education_category));
+                getString(R.string.settings_search_by_news_key),
+                getString(R.string.settings_news_label));
 
 
         // Create an URI and an URI Builder
@@ -144,11 +144,9 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
         // Append the search parameters to the request URL
-        uriBuilder.appendQueryParameter("q", EDUCATION);
-        uriBuilder.appendQueryParameter(API_KEY, KEY);
-        uriBuilder.appendQueryParameter("q", TRAINING);
         uriBuilder.appendQueryParameter("q", searchSection);
-
+        uriBuilder.appendQueryParameter(API_KEY, KEY);
+        Log.i("url",uriBuilder.toString());
 
         // Create a NewsLoader with the request URL
         return new EducationNewsLoader(this, uriBuilder.toString());

@@ -2,8 +2,14 @@
 <resources>
 
     <string-array name="settings_search_by_news_label">
-        <item>@string/settings_search_by_news_default</item>
-        <item>@string/settings_search_by_news_education_category</item>
+        <item>@string/settings_news_label</item>
+        <item>@string/settings_search_by_news_training</item>
+        <item>@string/settings_search_by_news_teaching</item>
+        <item>@string/settings_search_by_news_courses</item>
+        <item>@string/settings_search_by_news_subjects</item>
+        <item>@string/settings_search_by_news_schools</item>
+        <item>@string/settings_search_by_news_universities</item>
+        <item>@string/settings_search_by_news_scholarships</item>
     </string-array>
 
     </resources>

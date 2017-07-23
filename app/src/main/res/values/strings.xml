@@ -16,7 +16,17 @@
     <!-- Strings for Search by Preference -->
     <string name="settings_news_label">Education</string>
     <string name="settings_search_by_news_key" translatable="false">Search By</string>
+    <string name="settings_search_by_news_key_list_preference" translatable="false">Search By Option</string>
     <string name="settings_search_by_news_default" translatable="false">Education</string>
-    <string name="settings_search_by_news_education_category" translatable="false">Training</string>
+    <string name="settings_search_by_news_training" translatable="false">Training</string>
+    <string name="settings_search_by_news_teaching" translatable="false">Teaching</string>
+    <string name="settings_search_by_news_courses" translatable="false">Courses</string>
+    <string name="settings_search_by_news_subjects" translatable="false">Subjects</string>
+    <string name="settings_search_by_news_schools" translatable="false">Schools</string>
+    <string name="settings_search_by_news_universities" translatable="false">Universities</string>
+    <string name="settings_search_by_news_scholarships" translatable="false">Scholarships</string>
+
+    <!-- String for searching by using a Keyword in the EditTextPreference -->
+    <string name="settings_search_by_news_key_word" translatable="false">Search By News Keyword</string>
 
 </resources>
