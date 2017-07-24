@@ -10,8 +10,8 @@
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/list_item_background">
+        android:background="@color/list_item_background"
+        android:orientation="vertical">
 
     </ListView>
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textAppearance="?android:textAppearanceMedium"
-        tools:text="@string/no_news"/>
+        tools:text="@string/no_news" />
 
     <!-- Loading indicator is only shown before the first load -->
     <ProgressBar
@@ -30,6 +30,6 @@
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

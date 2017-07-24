@@ -18,7 +18,7 @@ public class EducationNewsAdapter extends ArrayAdapter<EducationNews> {
     /**
      * An EducationNewsAdapter knows how to create a list item layout for each news
      * in the data source (a list of educationNews objects).
-     *
+     * <p>
      * These list item layouts will be provided to an adapter view like ListView
      * to be displayed to the user.
      */

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:padding="@dimen/padding_large">
 
     <TextView
@@ -11,40 +11,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:textSize="@dimen/textSize_title"
-        android:textColor="#fc5cd7"
-        android:textStyle="bold"
-        android:paddingTop="@dimen/padding_small"
         android:paddingBottom="@dimen/padding_medium"
         android:paddingLeft="@dimen/padding_tiny"
-        tools:text="Title"/>
+        android:paddingTop="@dimen/padding_small"
+        android:textColor="#fc5cd7"
+        android:textSize="@dimen/textSize_title"
+        android:textStyle="bold"
+        tools:text="Title" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/padding_small">
 
-    <TextView
-        android:id="@+id/news_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/textSize_news_section"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimary"
-        android:paddingBottom="@dimen/padding_small"
-        tools:text="News Section" />
+        <TextView
+            android:id="@+id/news_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding_small"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/textSize_news_section"
+            android:textStyle="bold"
+            tools:text="News Section" />
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/textSize_date"
-        android:textStyle="bold|italic"
-        android:textColor="@android:color/holo_purple"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/news_section"
-        tools:text="Date" />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/news_section"
+            android:textColor="@android:color/holo_purple"
+            android:textSize="@dimen/textSize_date"
+            android:textStyle="bold|italic"
+            tools:text="Date" />
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </LinearLayout>

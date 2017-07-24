@@ -7,14 +7,16 @@ import java.util.List;
 
 public class EducationNewsLoader extends AsyncTaskLoader<List<EducationNews>> {
 
-    /** Query URL */
+    /**
+     * Query URL
+     */
     private String mUrl;
 
     /**
      * Constructs a new EducationNewsLoader.
      *
      * @param context of the activity
-     * @param url to load data from
+     * @param url     to load data from
      */
     public EducationNewsLoader(Context context, String url) {
         super(context);

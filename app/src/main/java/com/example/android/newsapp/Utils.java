@@ -23,26 +23,20 @@ import java.util.List;
  */
 public class Utils {
 
-    // Tag for the log messages
-    private static final String LOG_TAG = Utils.class.getSimpleName();
-
     // Key used for the JSON response
     static final String RESPONSE = "response";
-
     // Key used for the results with the list of news
     static final String RESULTS = "results";
-
     // Key used for the title of the news
     static final String NEWS_TITLE = "webTitle";
-
     // Key used for the section of the news
     static final String SECTION = "sectionName";
-
     // Key used for the date when the news was published
     static final String DATE = "webPublicationDate";
-
     // Key used for the URL of the news
     static final String NEWS_URL = "webUrl";
+    // Tag for the log messages
+    private static final String LOG_TAG = Utils.class.getSimpleName();
 
     /**
      * Create a private constructor.
@@ -201,7 +195,7 @@ public class Utils {
 
             // Extract the JSONArray associated with the key called "results",
             // which represents a list of results with EducationNews.
-            JSONArray resultsNewsArray =  responseNewsObject.getJSONArray(RESULTS);
+            JSONArray resultsNewsArray = responseNewsObject.getJSONArray(RESULTS);
 
             // For each Education News in the educationNewsArray, create an EducationNews object
             for (int i = 0; i < resultsNewsArray.length(); i++) {
@@ -211,29 +205,29 @@ public class Utils {
 
                 String title = "N/A";
                 if (currentEducationNews.has(NEWS_TITLE)) {
-                    // Extract the value for the key called "title" - Get the title of the current Education News
+                    // Extract the value for the key called "webTitle" - Get the Web Title of the current Education News
                     title = currentEducationNews.getString(NEWS_TITLE);
                 }
 
                 String section = "N/A";
                 if (currentEducationNews.has(SECTION)) {
-                    // Extract the value for the key called "title" - Get the title of the current Education News
+                    // Extract the value for the key called "sectionName" - Get the Section Name of the current Education News
                     section = currentEducationNews.getString(SECTION);
                 }
 
                 String date = "N/A";
                 if (currentEducationNews.has(DATE)) {
-                    // Extract the value for the key called "title" - Get the title of the current Education News
+                    // Extract the value for the key called "webPublicationDate" - Get the Publication Date of the current Education News
                     date = currentEducationNews.getString(DATE);
                 }
 
                 String newsUrl = "N/A";
                 if (currentEducationNews.has(NEWS_URL)) {
-                    // Extract the value for the key called "title" - Get the title of the current Education News
-                   newsUrl = currentEducationNews.getString(NEWS_URL);
+                    // Extract the value for the key called "webUrl" - Get the Web URL of the current Education News
+                    newsUrl = currentEducationNews.getString(NEWS_URL);
                 }
 
-                // Create a new Education News object with the title, section, date and URL from the JSON response
+                // Create a new Education News object with the title, section, date and newsUrl from the JSON response
                 EducationNews newsEducationNews = new EducationNews(title, section, date, newsUrl);
 
                 // Add the new Education News object created to the list of Education News.

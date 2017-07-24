@@ -39,15 +39,12 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
 
     // Constant value for the API Key
     private static final String KEY = "59d0bf63-14c5-4f77-b80d-cbd12411469f";
-
-    // Adapter for the Education News
-    private EducationNewsAdapter newsAdapter;
-
-    // TextView that is displayed for the empty state view
-    private TextView emptyStateTextView;
-
     // ProgressBar that is displayed when the application is searching for news
     public ProgressBar progressBar;
+    // Adapter for the Education News
+    private EducationNewsAdapter newsAdapter;
+    // TextView that is displayed for the empty state view
+    private TextView emptyStateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,25 +100,25 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         if (networkInfo != null && networkInfo.isConnected()) {
             Log.e(LOG_TAG, "There is an internet connection.");
             // Get a reference to the LoaderManager, in order to interact with loaders.
-               LoaderManager loaderManager = getLoaderManager();
+            LoaderManager loaderManager = getLoaderManager();
 
             // Initialize the loader. Pass in the int ID constant defined above and pass in null for
             // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
             // because this activity implements the LoaderCallbacks interface).
-                loaderManager.initLoader(NEWS_LOADER_ID , null, this);
-            } else {
-                Log.e(LOG_TAG, "There is no internet connection.");
-                // Otherwise, display error
-                // First, hide loading indicator so error message will be visible
-                View progressBar = findViewById(R.id.progress_bar);
-                progressBar.setVisibility(View.GONE);
+            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
+        } else {
+            Log.e(LOG_TAG, "There is no internet connection.");
+            // Otherwise, display error
+            // First, hide loading indicator so error message will be visible
+            View progressBar = findViewById(R.id.progress_bar);
+            progressBar.setVisibility(View.GONE);
 
-                // Update empty state with no connection error message
-                emptyStateTextView.setText(R.string.no_internet_connection);
-                // Show the empty state with no connection error message
-                emptyStateTextView.setVisibility(View.VISIBLE);
-            }
+            // Update empty state with no connection error message
+            emptyStateTextView.setText(R.string.no_internet_connection);
+            // Show the empty state with no connection error message
+            emptyStateTextView.setVisibility(View.VISIBLE);
         }
+    }
 
     @Override
     public Loader<List<EducationNews>> onCreateLoader(int i, Bundle bundle) {
@@ -202,6 +199,6 @@ public class EducationNewsActivity extends AppCompatActivity implements LoaderMa
         // Restart the loader. Pass in the int ID constant defined above and pass in null for
         // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
         // because this activity implements the LoaderCallbacks interface).//
-        loaderManager.restartLoader(NEWS_LOADER_ID , null, this);
+        loaderManager.restartLoader(NEWS_LOADER_ID, null, this);
     }
 }
